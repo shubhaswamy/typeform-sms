@@ -6,30 +6,6 @@ import ast
 
 # api-endpoint
 
-ACCESS_TOKEN = "HrHtpTSH1ZpVZgoK9gdVZy5m66FTgSME8yA5h25rSemq"
-
-#URL2 = "https://api.typeform.com/v1/form/ht2toX?key=HrHtpTSH1ZpVZgoK9gdVZy5m66FTgSME8yA5h25rSemq"
-URL = "https://api.typeform.com/forms/ht2toX/responses"
- 
-# location given here
-
-response = requests.get(URL, headers={'authorization': 'bearer HrHtpTSH1ZpVZgoK9gdVZy5m66FTgSME8yA5h25rSemq'})
-data = response.json()
-
-
-#data2 = json.loads(data.decode('utf-8'), object_pairs_hook=OrderedDict)
-#data2 =json.dumps(data)
-
-
-#print(data2)
-#response2 = requests.get(URL2)
-#data2 = response2.json()
-
-#print(data3)
-
-
-#with open('data.txt', 'w') as outfile:  
-	#json.dump(data, outfile)
 
 
 def printJSON(d): 
@@ -41,7 +17,7 @@ def printJSON(d):
 			y = x['field']['id']
 			idVal = 'JomoOraxCZNn'
 			if (y == idVal):
-				print(x['text'])
+				return(x['text'])
 			#typeVal = x['type']
 			#print(x)
 			#print(x['field']['text'])
@@ -69,10 +45,46 @@ def printJSON(d):
 
 	'''
 
-printJSON(data)
+def runTypeform():
+	ACCESS_TOKEN = "HrHtpTSH1ZpVZgoK9gdVZy5m66FTgSME8yA5h25rSemq"
 
-print("done")
+	#URL2 = "https://api.typeform.com/v1/form/ht2toX?key=HrHtpTSH1ZpVZgoK9gdVZy5m66FTgSME8yA5h25rSemq"
+	URL = "https://api.typeform.com/forms/ht2toX/responses"
+	 
+	# location given here
 
+	response = requests.get(URL, headers={'authorization': 'bearer HrHtpTSH1ZpVZgoK9gdVZy5m66FTgSME8yA5h25rSemq'})
+	data = response.json()
+
+
+	#data2 = json.loads(data.decode('utf-8'), object_pairs_hook=OrderedDict)
+	#data2 =json.dumps(data)
+
+
+	#print(data2)
+	#response2 = requests.get(URL2)
+	#data2 = response2.json()
+
+	#print(data3)
+
+
+	#with open('data.txt', 'w') as outfile:  
+		#json.dump(data, outfile)
+	retPhoneNum = printJSON(data)
+
+	ret2 = unicodedata.normalize('NFKD', retPhoneNum).encode('ascii','ignore')
+
+	#print(type(retPhoneNum))
+	#print(type(ret2))
+	#print(ret2)
+
+	return ret2
+
+
+
+	print("done")
+
+runTypeform()
 
 #print(response.status_code)
 #print(data)
