@@ -54,17 +54,17 @@ Pass in this function into lambda_function() to get the Typeform data
 def runTypeform():
 
 	#insert ACCESS_TOKEN value from Typeform account
-	ACCESS_TOKEN = "HrHtpTSH1ZpVZgoK9gdVZy5m66FTgSME8yA5h25rSemq" 
+	ACCESS_TOKEN = "ACCESS_TOKEN" 
 
 
 	#Insert {form_id} value from custom Typeform
-	URL = "https://api.typeform.com/forms/ht2toX/responses"
+	URL = "https://api.typeform.com/forms/{form_id}/responses"
 	 
 	
 
 	#request data and return JSON
 	#Insert ACCESS_TOKEN value 
-	response = requests.get(URL, headers={'authorization': 'bearer HrHtpTSH1ZpVZgoK9gdVZy5m66FTgSME8yA5h25rSemq'})
+	response = requests.get(URL, headers={'authorization': 'bearer ACCESS_TOKEN'})
 	data = response.json()
 
 
