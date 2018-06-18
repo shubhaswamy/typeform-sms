@@ -47,7 +47,7 @@ def printJSON(d):
 
 
 '''
-Main method for requesting daat from Typeform API 
+Main method for requesting data from Typeform API 
 Pass in this function into lambda_function() to get the Typeform data
 '''
 
