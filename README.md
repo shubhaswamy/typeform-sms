@@ -29,7 +29,7 @@ To test and deploy this you will need:
 ### Setup and Usage
 
 - Create a custom form to collect data on [Typeform](https://www.typeform.com) and update  `getmessage.py`  accordingly. 
-- Configure Twilio account and setup `FROM_NUMBER` in `lambda_function.py`.
+- Configure Twilio account and setup `FROM_NUMBER` (Twilio phone number) in `lambda_function.py`.
 - Setup the Lambda function on AWS by copying the contents of `getmessage.py`  and `lambda_function.py`  and modifying it accordingly as stated above. 
 - Link the code to the lambda function by adding the necessary triggers. Set API variables under "Environment variables" in AWS. 
 - Create a test in AWS with an empty JSON input to manually test the lambda function. 
