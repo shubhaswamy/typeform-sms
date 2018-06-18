@@ -6,22 +6,33 @@ import getresults as tf #.py file gets data from Typeform
 from urllib import request, parse
  
 
+
 #Twilio SMS URL
 TWILIO_SMS_URL = "https://api.twilio.com/2010-04-01/Accounts/{}/Messages.json"
 TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
+
+'''
+Set TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN 
+under "Environment values" in AWS
+to your values from Twilio account.
+'''
  
  
+
 def lambda_handler(event, context):
 
 	#call main function to get Typeform data 
     frm, phone, rcpt, msg = tf.runTypeform()
     to_number = phone #gets phone number from details filled out in the Typeform 
-    from_number = "+19165426597" #replace with your Twilio Phone Number 
+
+    #replace with your Twilio Phone Number 
+    from_number = "FROM_NUMBER"
+
     body = msg #custom message from Typeform
  
 
- 	#error messages fro AWS 
+ 	#error messages from AWS 
     if not TWILIO_ACCOUNT_SID:
 
         return "Unable to access Twilio Account SID."
@@ -39,7 +50,7 @@ def lambda_handler(event, context):
         return "The function needs a 'From' number in the format +19732644156"
 
     elif not body:
-    	
+
         return "The function needs a 'Body' message to send."
 
 
