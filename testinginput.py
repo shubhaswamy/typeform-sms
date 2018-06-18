@@ -1,6 +1,5 @@
 import getresults as tf 
 
-getNum = tf.runTypeform()
+frm, phone, rcpt, msg = tf.runTypeform()
 
-print(getNum)
-print(type(getNum))
+print(frm, phone, rcpt, msg)

@@ -9,21 +9,42 @@ import ast
 
 
 def printJSON(d): 
+	fromVal = ""
 	phoneNumber = ""
+	recepient = ""
+	message = ""
 	
 	for i in d['items']:
 		for x in i['answers']:
 			#print(" x: ", x)
 			y = x['field']['id']
+			#print(y)
 			idVal = 'JomoOraxCZNn'
+
+			idVal2 = 'shoDLZaF2OXS'
+			idVal3 = 'eK0p6DZrF9rZ'
+			idVal4 = 'dZ0AWx0czOJa'
+
 			if (y == idVal):
-				return(x['text'])
+				phoneNumber = (x['text']) #phone Number 
+
+			if (y == idVal2):
+				fromVal = (x['text']) #from 
+
+			if (y == idVal3):
+				recepient = (x['text']) #recepient 
+
+			if (y == idVal4):
+				message = (x['choice']['label']) #from 
 			#typeVal = x['type']
 			#print(x)
 			#print(x['field']['text'])
 			#print(type(x[typeVal]), x[typeVal])
 
 			#print(unicodedata.normalize('NFC', x[typeVal]))
+
+	#print(fromVal, " ", phoneNumber, " ", recepient, " ", message)
+	return fromVal, phoneNumber, recepient, message
 
 
 
@@ -70,19 +91,24 @@ def runTypeform():
 
 	#with open('data.txt', 'w') as outfile:  
 		#json.dump(data, outfile)
-	retPhoneNum = printJSON(data)
+	fromVal, phoneNumber, recepient, message = printJSON(data)
 
-	ret2 = unicodedata.normalize('NFKD', retPhoneNum).encode('ascii','ignore')
+
+	frm = unicodedata.normalize('NFKD', fromVal).encode('ascii','ignore')
+	phone = unicodedata.normalize('NFKD', phoneNumber).encode('ascii','ignore')
+	rcpt = unicodedata.normalize('NFKD', recepient).encode('ascii','ignore')
+	msg = unicodedata.normalize('NFKD', message).encode('ascii','ignore')
 
 	#print(type(retPhoneNum))
 	#print(type(ret2))
 	#print(ret2)
 
-	return ret2
+	#print(frm, phone, rcpt, msg)
+	return frm, phone, rcpt, msg
 
 
 
-	print("done")
+	#print("done")
 
 runTypeform()
 
