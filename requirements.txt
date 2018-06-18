@@ -1,6 +1,11 @@
-requests
-json
-collections
-unicodedata
-ast
-twilio
+import base64
+import json
+import os
+import urllib
+import getresults as tf
+import urllib 
+import botocore.vendored
+import json
+import OrderedDict
+import unicodedata
+import ast
