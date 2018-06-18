@@ -4,7 +4,7 @@ This application integrates [Typeform](https://developer.typeform.com/responses/
 
 
 
-<img src="https://i.imgur.com/8cYQaVa.jpg" alt="drawing" style="width:50px;"/>
+<img src="https://i.imgur.com/HTe4tQF.png" alt="drawing" style="width:50px;"/>
 
 
 
