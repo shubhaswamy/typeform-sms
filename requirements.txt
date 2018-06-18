@@ -1,11 +1,11 @@
-import base64
-import json
-import os
-import urllib
-import getresults as tf
-import urllib 
-import botocore.vendored
-import json
-import OrderedDict
-import unicodedata
-import ast
+base64
+json
+os
+urllib
+getresults as tf
+urllib 
+botocore.vendored
+json
+OrderedDict
+unicodedata
+ast
