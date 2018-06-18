@@ -1,4 +1,4 @@
-import requests
+from botocore.vendored import requests
 import json
 from collections import OrderedDict
 import unicodedata
