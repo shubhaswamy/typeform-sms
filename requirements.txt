@@ -1,11 +1,6 @@
-base64
+print_function
 json
+boto3
+base64
 os
 urllib
-getresults as tf
-urllib 
-botocore.vendored
-json
-OrderedDict
-unicodedata
-ast
